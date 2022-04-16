@@ -34,7 +34,7 @@
 			</div>
 			<br>
 
-			<a style="color: cyan; background-color: black;" type="button" class="btn btn-primary btn-lg btn-block" href="{{route('sells')}}">Sells</a>
+			<a style="color: cyan; background-color: black;" type="button" class="btn btn-primary btn-lg btn-block" href="{{route('order')}}">Order List</a>
 			<br>
 
 		</td>

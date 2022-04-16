@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\shop_registration;
 use App\Models\product;
+use App\Models\customer;
+use App\Models\order;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.user');
+    }
+
     public function view_product(){
 
         $value = session()->get('id');
@@ -51,7 +59,7 @@ class ProductController extends Controller
         $req->validate(
             [
                 'p_category'=>'required',
-                'p_name'=>'required|regex:/^[A-Z a-z]+$/',
+                'p_name'=>'required|regex:/^[A-Z a-z & 0-9 -]+$/',
                 'p_price'=>'required',
                 'p_quantity'=>'required',
                 'p_picture'=>'required|mimes:png,jpg'
@@ -104,7 +112,7 @@ class ProductController extends Controller
         $req->validate(
             [
                 'p_category'=>'required',
-                'p_name'=>'required|regex:/^[A-Z a-z]+$/',
+                'p_name'=>'required|regex:/^[A-Z a-z & 0-9 -]+$/',
                 'p_price'=>'required',
                 'p_quantity'=>'required',
                 'p_picture'=>'required|mimes:png,jpg'

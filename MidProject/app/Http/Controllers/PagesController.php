@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MyTestMail;
+
 use Illuminate\Http\Request;
 use App\Models\shop_registration;
 use App\Models\product;
+use App\Models\customer;
+use App\Models\order;
 
 class PagesController extends Controller
 {
@@ -124,5 +129,17 @@ class PagesController extends Controller
 
         session()->flush();
         return redirect()->route('login');
+    }
+
+    public function mail(){
+
+        $details = [
+        'title' => 'Mail from fahad',
+        'body' => 'Hello '
+    ];
+   
+    Mail::to('shahriarfarabi1998@gmail.com')->send(new \App\Mail\MyTestMail($details));
+   
+    echo "Mail send";
     }
 }

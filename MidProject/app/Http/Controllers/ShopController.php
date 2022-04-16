@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\shop_registration;
 use App\Models\product;
+use App\Models\customer;
+use App\Models\order;
 
 class ShopController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.user');
+    }
+
     public function dashboard(){
         return view('shop.dashboard');
     }
@@ -25,8 +33,11 @@ class ShopController extends Controller
         return view('shop.edit_profile');
     }
 
-    public function sells(){
-        return view('shop.sells');
+    public function order(){
+
+        $pro = product::all();
+        return $pro->customer;
+        return view('shop.order');
     }
     public function change_password(){
         return view('shop.change_password');

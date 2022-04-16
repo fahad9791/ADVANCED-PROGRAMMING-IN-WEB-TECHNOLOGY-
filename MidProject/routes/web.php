@@ -27,7 +27,7 @@ Route::get('/view_profile', [ShopController::class, 'view_profile'])->name('view
 Route::get('/edit_profile', [ShopController::class, 'edit_profile'])->name('edit_profile');
 Route::get('/change_password', [ShopController::class, 'change_password'])->name('change_password');
 Route::get('/change_picture', [ShopController::class, 'change_picture'])->name('change_picture');
-Route::get('/sells', [ShopController::class, 'sells'])->name('sells');
+Route::get('/order', [ShopController::class, 'order'])->name('order');
 
 Route::get('/view_product', [ProductController::class, 'view_product'])->name('view_product');
 Route::get('/add_product', [ProductController::class, 'add_product'])->name('add_product');
@@ -47,3 +47,19 @@ Route::post('/change_picture', [ShopController::class, 'change_picturesubmit'])-
 Route::post('/add_product', [ProductController::class, 'add_productsubmit'])->name('add_product.submit');
 Route::post('/product_details_update', [ProductController::class, 'product_details_updatesubmit'])->name('product_details_update.submit');
 Route::post('/product_details_delete', [ProductController::class, 'product_details_deletesubmit'])->name('product_details_delete.submit');
+
+
+
+Route::get('/send-mail', [PagesController::class, 'mail'])->name('mail');
+
+// Route::get('send-mail', function () {
+   
+//     $details = [
+//         'title' => 'Mail from fahad',
+//         'body' => 'Hello '
+//     ];
+   
+//     Mail::to('shahriarfarabi1998@gmail.com')->send(new \App\Mail\MyTestMail($details));
+   
+//     echo "Mail send";
+// });
